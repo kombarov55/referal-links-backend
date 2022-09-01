@@ -6,5 +6,33 @@ spring:
     username: referal_links
     password: referal_links
   jpa.hibernate.naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: linkreferal8
+    password: 123qweQWE
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+
 app:
-  register-link: http://localhost:3000/register-client?partnerid=
+  register-link: http://localhost:3000/register_client?partnerid=
+  dictionary:
+    countries:
+      - Россия
+      - Украина
+      - Беларусь
+      - Молдова
+      - Белорусия
+      - США
+      - Великобритания
+      - Германия
+      - Франция
+      - Новегия
+      - Шведция
+      - Другое
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: linkreferal8
+    password: 123qweQWE

@@ -6,24 +6,29 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
-@Builder
+@Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "partner")
-public class Partner {
+@Table(name = "client")
+public class Client {
     @Id
     String id;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id", referencedColumnName = "id")
-    Account account;
+    Account account = new Account();
 
-    Integer points;
+    String partnerId;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    List<Client> clients;
+    String lastName;
+    String firstName;
+    String middleName;
+    String address;
+    String postIndex;
+    String email;
+    String phone;
+    String country;
 }
