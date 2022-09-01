@@ -1,0 +1,10 @@
+server:
+  port: 8666
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/referal_links
+    username: referal_links
+    password: referal_links
+  jpa.hibernate.naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+app:
+  register-link: http://localhost:3000/register-client?partnerid=

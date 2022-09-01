@@ -1,0 +1,23 @@
+POST localhost:8666/account/login
+Content-Type: application/json
+
+{
+  "login": "admin",
+  "pwd": "admin"
+}
+
+###
+
+POST localhost:8666/partner
+Content-Type: application/json
+
+{
+  "login": "partner1",
+  "pwd": "partner"
+}
+
+###
+
+GET localhost:8666/partner
+
+###
