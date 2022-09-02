@@ -27,3 +27,12 @@ create table client
     phone varchar,
     country varchar
 );
+
+create table bonus_history
+(
+  id varchar primary key,
+  partner_id varchar not null,
+  diff int,
+  amount int,
+  creation_date timestamp
+);

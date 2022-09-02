@@ -25,5 +25,6 @@ public class Partner {
     Integer points;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "partnerId")
     List<Client> clients;
 }

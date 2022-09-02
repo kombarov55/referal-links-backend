@@ -21,7 +21,7 @@ public class AdminCreator {
             Account account = Account.builder()
                     .id(UUID.randomUUID().toString())
                     .login("admin")
-                    .pwdHash(HashUtil.hash("admin"))
+                    .pwdHash("admin")
                     .role(AccountRole.MANAGER)
                     .build();
 

@@ -9,7 +9,6 @@ import ru.mail.nakombarov.referallinksbackend.data.entity.Account;
 import ru.mail.nakombarov.referallinksbackend.data.rq.LoginRq;
 import ru.mail.nakombarov.referallinksbackend.data.rs.LoginRs;
 import ru.mail.nakombarov.referallinksbackend.repository.AccountRepository;
-import ru.mail.nakombarov.referallinksbackend.util.HashUtil;
 
 import java.util.Map;
 
@@ -22,8 +21,7 @@ public class AccountEndpoint {
     @PostMapping
     @RequestMapping("/login")
     public LoginRs login(@RequestBody LoginRq rq) {
-        String pwdHash = HashUtil.hash(rq.getPwd());
-        Account account = accountRepository.findByLoginAndPwdHash(rq.getLogin(), pwdHash);
+        Account account = accountRepository.findByLoginAndPwdHash(rq.getLogin(), rq.getPwd());
 
         if (account == null) {
             return LoginRs.builder()

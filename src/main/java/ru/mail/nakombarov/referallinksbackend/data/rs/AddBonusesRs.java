@@ -7,12 +7,9 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class PartnerRs {
-    String login;
-    Integer points;
-    String id;
-    String registerLink;
-    int clientsCount;
+@AllArgsConstructor
+public class AddBonusesRs {
+    boolean success;
+    int points;
 }

@@ -21,3 +21,8 @@ Content-Type: application/json
 GET localhost:8666/partner
 
 ###
+
+GET localhost:8666/client?page=0&size=10
+
+###
+GET localhost:8666/client/findById?q=1

@@ -1,12 +1,11 @@
 package ru.mail.nakombarov.referallinksbackend.util;
 
 import lombok.SneakyThrows;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class HashUtil {
 
-    private static PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    private static BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @SneakyThrows
     public static String hash(String pwd) {
