@@ -10,4 +10,5 @@ public class PartnerByIdRs {
     String id;
     String login;
     int points;
+    int clientsCount;
 }

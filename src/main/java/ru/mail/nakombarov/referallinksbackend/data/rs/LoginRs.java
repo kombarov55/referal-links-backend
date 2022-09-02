@@ -12,4 +12,6 @@ import lombok.NoArgsConstructor;
 public class LoginRs {
     boolean found;
     String id;
+    String login;
+    String role;
 }

@@ -75,7 +75,7 @@ public class PartnerEndpoint {
     @GetMapping
     @RequestMapping("/find")
     public List<PartnerRs> findByLogin(@RequestParam("login") String login) {
-        return partnerRepository.findByLogin(login).stream()
+        return partnerRepository.findByLoginLike(login).stream()
                 .map(v -> PartnerRs.builder()
                         .login(v.getAccount().getLogin())
                         .points(v.getPoints())
@@ -95,10 +95,25 @@ public class PartnerEndpoint {
                         .id(v.getId())
                         .points(v.getPoints())
                         .login(v.getAccount().getLogin())
+                        .clientsCount(v.getClients().size())
                         .build())
                 .orElse(PartnerByIdRs.builder()
                         .found(false)
                         .build());
+    }
+
+    @GetMapping
+    @RequestMapping("/byLogin")
+    public PartnerByIdRs findByLoginStrict(@RequestParam("q") String login) {
+        return partnerRepository.findByAccountLogin(login)
+                .map(v -> PartnerByIdRs.builder()
+                        .found(true)
+                        .id(v.getId())
+                        .points(v.getPoints())
+                        .login(v.getAccount().getLogin())
+                        .clientsCount(v.getClients().size())
+                        .build())
+                .orElse(null);
     }
 
     @PostMapping

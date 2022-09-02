@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import ru.mail.nakombarov.referallinksbackend.data.entity.Partner;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PartnerRepository extends PagingAndSortingRepository<Partner, String> {
@@ -16,5 +17,7 @@ public interface PartnerRepository extends PagingAndSortingRepository<Partner, S
     @Query("select vo "
             + "from Partner vo "
             + "where vo.account.login like %:login%")
-    List<Partner> findByLogin(String login);
+    List<Partner> findByLoginLike(String login);
+
+    Optional<Partner> findByAccountLogin(String login);
 }

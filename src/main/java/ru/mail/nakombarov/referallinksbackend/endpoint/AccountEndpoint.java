@@ -10,8 +10,6 @@ import ru.mail.nakombarov.referallinksbackend.data.rq.LoginRq;
 import ru.mail.nakombarov.referallinksbackend.data.rs.LoginRs;
 import ru.mail.nakombarov.referallinksbackend.repository.AccountRepository;
 
-import java.util.Map;
-
 @RestController
 @RequestMapping("/account")
 @RequiredArgsConstructor()
@@ -26,19 +24,14 @@ public class AccountEndpoint {
         if (account == null) {
             return LoginRs.builder()
                     .found(false)
-                    .id(null)
                     .build();
         } else {
             return LoginRs.builder()
                     .found(true)
                     .id(account.getId())
+                    .role(account.getRole().name())
+                    .login(account.getLogin())
                     .build();
         }
-    }
-
-    @PostMapping
-    @RequestMapping("/add")
-    public void create(@RequestBody Map<String, String> data) {
-
     }
 }
