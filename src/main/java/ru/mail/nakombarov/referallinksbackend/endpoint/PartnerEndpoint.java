@@ -1,7 +1,6 @@
 package ru.mail.nakombarov.referallinksbackend.endpoint;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +20,7 @@ import java.util.stream.StreamSupport;
 
 @RestController
 @RequestMapping("/partner")
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor()
 public class PartnerEndpoint {
 
     @Value("${app.register-link}")

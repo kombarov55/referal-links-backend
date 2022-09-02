@@ -1,14 +1,13 @@
 package ru.mail.nakombarov.referallinksbackend.util;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 import ru.mail.nakombarov.referallinksbackend.config.MailProperties;
 
 @Component
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor()
 public class MailService {
 
     private final JavaMailSender javaMailSender;
