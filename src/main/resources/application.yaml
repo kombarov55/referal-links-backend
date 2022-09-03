@@ -13,7 +13,7 @@ spring:
     password: ${app.mail.password}
 
 app:
-  register-link: http://192.168.0.11:3000/register_client?partnerid=
+  register-link: https://kombarov55.github.io/register_client?partnerid=
   dictionary:
     countries:
       - Россия
