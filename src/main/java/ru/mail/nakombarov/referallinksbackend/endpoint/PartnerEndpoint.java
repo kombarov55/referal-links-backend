@@ -1,7 +1,6 @@
 package ru.mail.nakombarov.referallinksbackend.endpoint;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 import ru.mail.nakombarov.referallinksbackend.data.AccountRole;
@@ -31,9 +30,6 @@ import java.util.stream.StreamSupport;
 @RequiredArgsConstructor()
 public class PartnerEndpoint {
 
-    @Value("${app.register-link}")
-    private String registerLink;
-
     private final PartnerRepository partnerRepository;
     private final BonusHistoryRepository bonusHistoryRepository;
 
@@ -55,7 +51,6 @@ public class PartnerEndpoint {
         return AddPartnerRs.builder()
                 .id(vo.getId())
                 .login(rq.getLogin())
-                .registerLink(registerLink + vo.getId())
                 .build();
     }
 
@@ -66,7 +61,6 @@ public class PartnerEndpoint {
                         .login(v.getAccount().getLogin())
                         .points(v.getPoints())
                         .id(v.getId())
-                        .registerLink(registerLink + v.getId())
                         .clientsCount(v.getClients().size())
                         .build())
                 .collect(Collectors.toList());
@@ -80,7 +74,6 @@ public class PartnerEndpoint {
                         .login(v.getAccount().getLogin())
                         .points(v.getPoints())
                         .id(v.getId())
-                        .registerLink(registerLink + v.getId())
                         .clientsCount(v.getClients().size())
                         .build())
                 .collect(Collectors.toList());

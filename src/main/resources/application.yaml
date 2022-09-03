@@ -13,7 +13,6 @@ spring:
     password: ${app.mail.password}
 
 app:
-  register-link: https://kombarov55.github.io/register_client?partnerid=
   dictionary:
     countries:
       - Россия

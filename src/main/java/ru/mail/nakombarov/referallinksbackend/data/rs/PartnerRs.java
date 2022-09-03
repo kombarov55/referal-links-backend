@@ -13,6 +13,6 @@ public class PartnerRs {
     String login;
     Integer points;
     String id;
-    String registerLink;
+
     int clientsCount;
 }
