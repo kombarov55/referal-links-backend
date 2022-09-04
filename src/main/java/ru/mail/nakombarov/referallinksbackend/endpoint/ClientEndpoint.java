@@ -29,7 +29,7 @@ public class ClientEndpoint {
     @PostMapping
     public AddClientRs addClient(@RequestBody AddClientRq rq) throws Exception {
         Client client = clientMapper.toVo(rq).toBuilder()
-                .id(rq.getPhone())
+                .id(rq.getPartnerId() + "_" + rq.getPhone())
                 .build();
         clientRepository.save(client);
         mailService.send(client.getEmail(), client);
