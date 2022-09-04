@@ -12,7 +12,5 @@ import lombok.NoArgsConstructor;
 public class PartnerRs {
     String login;
     Integer points;
-    String id;
-
     int clientsCount;
 }

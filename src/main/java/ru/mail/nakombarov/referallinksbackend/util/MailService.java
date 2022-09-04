@@ -19,7 +19,7 @@ public class MailService {
         msg.setFrom(mailProperties.getUsername());
         msg.setTo(email);
         msg.setSubject("Регистрация на 'Выкуп Брендов'");
-        msg.setText("Спасибо за регистрацию! Номер телефона " + client.getPhone() + " указанный при регистрации будет являться Вашим номером пользователя");
+        msg.setText("Спасибо за регистрацию! Номер телефона " + client.getPhone() + " указанный при регистрации будет являться Вашим номером пользователя.");
         javaMailSender.send(msg);
     }
 

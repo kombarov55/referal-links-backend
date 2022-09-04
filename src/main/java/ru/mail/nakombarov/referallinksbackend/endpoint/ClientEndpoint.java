@@ -10,7 +10,6 @@ import ru.mail.nakombarov.referallinksbackend.data.rs.AddClientRs;
 import ru.mail.nakombarov.referallinksbackend.data.rs.ClientRs;
 import ru.mail.nakombarov.referallinksbackend.mapper.ClientMapper;
 import ru.mail.nakombarov.referallinksbackend.repository.ClientRepository;
-import ru.mail.nakombarov.referallinksbackend.util.IdGenerator;
 import ru.mail.nakombarov.referallinksbackend.util.MailService;
 
 import java.util.List;
@@ -30,13 +29,13 @@ public class ClientEndpoint {
     @PostMapping
     public AddClientRs addClient(@RequestBody AddClientRq rq) throws Exception {
         Client client = clientMapper.toVo(rq).toBuilder()
-                .id(IdGenerator.gen())
+                .id(rq.getPhone())
                 .build();
         clientRepository.save(client);
         mailService.send(client.getEmail(), client);
 
         return AddClientRs.builder()
-                .phone(client.getEmail())
+                .phone(client.getPhone())
                 .build();
     }
 

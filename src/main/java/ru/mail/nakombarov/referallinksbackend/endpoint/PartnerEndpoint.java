@@ -36,7 +36,7 @@ public class PartnerEndpoint {
     @PostMapping
     public AddPartnerRs post(@RequestBody AddPartnerRq rq) {
         Partner vo = Partner.builder()
-                .id(IdGenerator.gen())
+                .id(rq.getLogin())
                 .account(Account.builder()
                         .id(IdGenerator.gen())
                         .login(rq.getLogin())
@@ -60,7 +60,6 @@ public class PartnerEndpoint {
                 .map(v -> PartnerRs.builder()
                         .login(v.getAccount().getLogin())
                         .points(v.getPoints())
-                        .id(v.getId())
                         .clientsCount(v.getClients().size())
                         .build())
                 .collect(Collectors.toList());
@@ -73,7 +72,6 @@ public class PartnerEndpoint {
                 .map(v -> PartnerRs.builder()
                         .login(v.getAccount().getLogin())
                         .points(v.getPoints())
-                        .id(v.getId())
                         .clientsCount(v.getClients().size())
                         .build())
                 .collect(Collectors.toList());
