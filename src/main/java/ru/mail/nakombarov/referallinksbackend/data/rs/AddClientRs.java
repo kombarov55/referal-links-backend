@@ -10,6 +10,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddClientRs {
-    String id;
-    String email;
+    String phone;
 }

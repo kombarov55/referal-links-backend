@@ -5,7 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @Builder(toBuilder = true)
@@ -17,16 +19,10 @@ public class Client {
     @Id
     String id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "account_id", referencedColumnName = "id")
-    Account account = new Account();
-
     String partnerId;
-
-    String lastName;
-    String firstName;
-    String middleName;
+    String fio;
     String address;
+    String region;
     String postIndex;
     String email;
     String phone;

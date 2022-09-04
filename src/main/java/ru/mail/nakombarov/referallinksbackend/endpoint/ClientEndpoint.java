@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
-import ru.mail.nakombarov.referallinksbackend.data.entity.Account;
 import ru.mail.nakombarov.referallinksbackend.data.entity.Client;
 import ru.mail.nakombarov.referallinksbackend.data.rq.AddClientRq;
 import ru.mail.nakombarov.referallinksbackend.data.rs.AddClientRs;
@@ -32,18 +31,12 @@ public class ClientEndpoint {
     public AddClientRs addClient(@RequestBody AddClientRq rq) throws Exception {
         Client client = clientMapper.toVo(rq).toBuilder()
                 .id(IdGenerator.gen())
-                .account(Account.builder()
-                        .id(IdGenerator.gen())
-                        .login(rq.getLogin())
-                        .pwdHash(rq.getPwd())
-                        .build())
                 .build();
         clientRepository.save(client);
-        mailService.send(client.getEmail(), client.getId());
+        mailService.send(client.getEmail(), client);
 
         return AddClientRs.builder()
-                .id(client.getId())
-                .email(client.getEmail())
+                .phone(client.getEmail())
                 .build();
     }
 

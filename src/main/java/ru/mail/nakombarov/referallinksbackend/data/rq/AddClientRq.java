@@ -10,13 +10,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddClientRq {
-    String login;
-    String pwd;
     String partnerId;
-    String lastName;
-    String firstName;
-    String middleName;
+    String fio;
     String address;
+    String region;
     String postIndex;
     String email;
     String phone;
